@@ -63,9 +63,16 @@ public class PlayerInteractor : MonoBehaviour
             sfxSource.PlayOneShot(sfxList[2]); //Reproducir el sonido de pick up
             other.gameObject.SetActive(false); //Apagar el objeto con el que chocas
         }
+
         if (other.gameObject.CompareTag("Switch"))
         {
             sfxSource.PlayOneShot(sfxList[3]); //Reproducir el sonido asociado al switch
+        }
+
+        if (other.gameObject.CompareTag("Feather"))
+        {
+
+            other.gameObject.SetActive(false); //Apagar el objeto con el que chocas
         }
         
     }
