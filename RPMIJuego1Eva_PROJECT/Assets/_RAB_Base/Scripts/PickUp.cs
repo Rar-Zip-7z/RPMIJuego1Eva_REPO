@@ -56,13 +56,13 @@ public class PickUp : MonoBehaviour
         if (((posInicial.position.y - transform.position.y) * direction) < (maxMoveY * 0.001 * direction))
         {
             transform.Translate(Vector3.up * moveSlowY * direction, Space.World); // EJE Y * VELOCIDAD Y * DIRECCION * EN RELACION AL MUNDO, NO AL LOCAL
-            Debug.Log("UP SLOW MODE OBJECT: " + transform.position.y + " " + " INICIO: " + posInicial.position.y + " //// "+ (posInicial.position.y - transform.position.y) + " > " + (maxMoveY * 0.1 * direction));
+            //Debug.Log("UP SLOW MODE OBJECT: " + transform.position.y + " " + " INICIO: " + posInicial.position.y + " //// "+ (posInicial.position.y - transform.position.y) + " > " + (maxMoveY * 0.1 * direction));
         }
         
         else
         {
             transform.Translate(Vector3.up * moveY * direction, Space.World); // EJE Y * VELOCIDAD Y * DIRECCION * EN RELACION AL MUNDO, NO AL LOCAL
-            Debug.Log("NORMAL MODE MODE OBJECT: " + transform.position.y + " " + " INICIO: " + posInicial.position.y + " //// " + (posInicial.position.y - transform.position.y) + " < " + (maxMoveY * 0.1 * direction));                
+            //Debug.Log("NORMAL MODE MODE OBJECT: " + transform.position.y + " " + " INICIO: " + posInicial.position.y + " //// " + (posInicial.position.y - transform.position.y) + " < " + (maxMoveY * 0.1 * direction));                
         }
 
         

@@ -218,10 +218,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a99d59e587eb784bb8e399e201c4aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  speed: 10
-  jumpForce: 8
+  speed: 0
+  jumpForce: 0
   useLinearVelocity: 1
-  groundCheck: 0
+  availableJump: 0
   playerRb: {fileID: 3409069474521666296}
   moveInput: {x: 0, y: 0}
   sfxSource: {fileID: 8591341639417929703}
@@ -241,14 +241,10 @@ MonoBehaviour:
   respawnPoint: {fileID: 0}
   respawnFallLimit: -10
   points: 0
-  winPoints: 8
+  winPoints: 5
   sceneToLoad: 2
   playerRb: {fileID: 3409069474521666296}
-  sfxList:
-  - {fileID: 8300000, guid: d3469b07ec6c0b94eb017a8d3ff1017b, type: 3}
-  - {fileID: 8300000, guid: 74a05b92e48855f4ca373c8f94f18c0f, type: 3}
-  - {fileID: 8300000, guid: e07d5aa9e36c2404f952345371717cac, type: 3}
-  - {fileID: 8300000, guid: 31cef3202bf9bd94d83ce7a26b452ff2, type: 3}
+  sfxList: []
   sfxSource: {fileID: 8591341639417929703}
 --- !u!82 &8591341639417929703
 AudioSource:
