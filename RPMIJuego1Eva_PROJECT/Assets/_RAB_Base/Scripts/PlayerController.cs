@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public float flapStartSpeed = -2.0f;
     public float flapStrength = 1.0f;
 
+    [Header("Debuff")]
+    public bool inBush = false;
+
 
     [Header("Reference Variables")]
     public Rigidbody playerRb; //Almacén de referencia del rb, una vez relleno permite modificar sus variables internas
@@ -62,6 +65,30 @@ public class PlayerController : MonoBehaviour
         {
             availableJump = true; //Al chocar con el suelo se devuelve la posibilidad de saltar
         }
+
+        if (other.gameObject.CompareTag("Bush"))
+        {
+            
+            if (!inBush) {
+                inBush = true;
+                playerRb.linearVelocity = new Vector3((playerRb.linearVelocity.x)/4, (playerRb.linearVelocity.y)/4, (playerRb.linearVelocity.z)/4);
+                speed = speed / 3;
+                jumpForce = jumpForce / 3;
+            }
+
+        }
+    }
+
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Bush")) {
+            inBush = false;
+            speed = speed * 3;
+            jumpForce = jumpForce * 3;
+
+        }
     }
 
 
@@ -101,7 +128,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             //Debug.Log("PLANEO");
-            Debug.Log(playerRb.linearVelocity.y);
+            //Debug.Log(playerRb.linearVelocity.y);
             //playerRb.AddForce(Vector3.up * (jumpForce), ForceMode.Force);
             if (playerRb.linearVelocity.y < flapStartSpeed) {
                 playerRb.linearVelocity = new Vector3(playerRb.linearVelocity.x, playerRb.linearVelocity.y + flapStrength, playerRb.linearVelocity.z);

@@ -29,7 +29,7 @@ public class PickUp : MonoBehaviour
 
     [Header("Movement Parameters")]
     public float maxMoveY = 0.75f;   // ALTURA MAXIMA Y    
-    public float moveY = 0.05f;     // INTENSIDAD DE MOVIMIENTO EN EJE Y
+    public float moveY = 0.04f;     // INTENSIDAD DE MOVIMIENTO EN EJE Y
     public float moveSlowY = 0.02f;
     public float direction = 1;     // POLARIZACION DE LA DIRECCIÓN
     public Transform posInicial;    // REFERENCIA A LA POSICION INICIAL DEL OBJETO

@@ -9,6 +9,9 @@ TagManager:
   - Ground
   - Switch
   - Feather
+  - AnillaCenter
+  - AnillaMesh
+  - Bush
   layers:
   - Default
   - TransparentFX
