@@ -448,6 +448,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953766382}
   m_Mesh: {fileID: -7387706064836869012, guid: 6a9b821ceac89fc4e8fe8b6fc8a45444, type: 3}
+--- !u!1 &1010764292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 309076290148226519, guid: 1d0ac382b827fc54682dbf85877bfc73, type: 3}
+  m_PrefabInstance: {fileID: 1851769860}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1010764298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010764292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c1e10a66ce17ee4eaf6457355eac21d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickUp
+  speedRotationX: 10
+  speedRotationY: 20
+  speedRotationZ: 30
+  maxMoveY: 0.75
+  moveY: 0.04
+  moveSlowY: 0.02
+  direction: 1
+  posInicial: {fileID: 1089774909}
 --- !u!1 &1038061140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,10 +1148,14 @@ PrefabInstance:
       propertyPath: speedRotationZ
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6735082485652762680, guid: 1d0ac382b827fc54682dbf85877bfc73, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 309076290148226519, guid: 1d0ac382b827fc54682dbf85877bfc73, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1010764298}
   m_SourcePrefab: {fileID: 100100000, guid: 1d0ac382b827fc54682dbf85877bfc73, type: 3}
 --- !u!1001 &1890770801
 PrefabInstance:
@@ -1180,6 +1209,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6735082485652762680, guid: 272a29187e43c4142ba332920259d7f0, type: 3}
+      propertyPath: posInicial
+      value: 
+      objectReference: {fileID: 1901009505}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1238,6 +1271,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.65, y: 0.65, z: 0.05}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1901009505 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5209237916000256289, guid: 272a29187e43c4142ba332920259d7f0, type: 3}
+  m_PrefabInstance: {fileID: 1890770801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2010056765
 GameObject:
   m_ObjectHideFlags: 0
