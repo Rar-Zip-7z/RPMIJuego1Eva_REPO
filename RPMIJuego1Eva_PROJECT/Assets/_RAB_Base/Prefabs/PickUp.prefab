@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 387e1a7efd35e3a4080e817fe377ec7b, type: 2}
+  - {fileID: 2100000, guid: ee98d3cb0be699744a6ece070e301fb6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -125,9 +125,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c1e10a66ce17ee4eaf6457355eac21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickUp
-  speedX: 10
-  speedY: 20
-  speedZ: 30
+  speedRotationX: 10
+  speedRotationY: 20
+  speedRotationZ: 30
+  maxMoveY: 0.75
+  moveY: 0.05
+  moveSlowY: 0.02
+  direction: 1
+  posInicial: {fileID: 0}
 --- !u!1 &4025031872065229104
 GameObject:
   m_ObjectHideFlags: 0

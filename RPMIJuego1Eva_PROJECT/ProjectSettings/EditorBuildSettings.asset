@@ -5,9 +5,42 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/_RPMI1EVA/Scenes/SCN_Prueba.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/_RAB_Base/Scenes/SCN_INICIO.unity
+    guid: 082a4e2ee73508348b60ab3e6e34a637
+  - enabled: 1
+    path: Assets/_RAB_Base/Scenes/SCN_MainMenu.unity
+    guid: 39332ef17fe4bc843b5d4d16defe1e35
+  - enabled: 1
+    path: Assets/_RAB_Base/Scenes/amongascityreal.unity
+    guid: 7f4b34b27df24da4aa73b97a1a6c30ed
+  - enabled: 1
+    path: Assets/_RAB_Base/Scenes/Assets_Piero.unity
+    guid: 995ff31fbb22a134d8f68c87c10feac8
+  - enabled: 1
+    path: Assets/_RAB_Base/Scenes/Movimiento Test.unity
+    guid: 2b9cf40d724219b4ab0f27a0c065a056
+  - enabled: 1
+    path: Assets/_RAB_Base/Scenes/NIVEL1PALOMA.unity
+    guid: ca3ae6b0583ad2247beaf960cc46638d
+  - enabled: 1
+    path: Assets/_RAB_Base/Scenes/SCN_LVL01.unity
+    guid: 7fe202e05666f0346a088ee1ca29a791
+  - enabled: 1
+    path: Assets/_RAB_Base/Scenes/SCN_Plantilla.unity
+    guid: c469892cc1270d640b087707a133c4a2
+  - enabled: 1
+    path: Assets/_RAB_Base/Scenes/SCN_Victory.unity
+    guid: 472ad88d48e2443409a8d31ab26997a4
+  - enabled: 1
+    path: Assets/_RAB_Base/Scenes/superaurayhypeN.unity
+    guid: f15739caa1360684a826469b3ed7e154
+  - enabled: 1
+    path: Assets/_RAB_Base/Scenes/Tuto.unity
+    guid: cf72a804fc65f7a419b5d3f76a187c1a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

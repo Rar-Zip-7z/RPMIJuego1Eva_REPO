@@ -8,7 +8,12 @@ public class PlayerController : MonoBehaviour
     public float speed; //Variable que define la velocidad del player
     public float jumpForce; //Define la fuerza de salto
     public bool useLinearVelocity = true; //Si es verdadero, usará el movimiento físico por motor de aceleración, si no, el de fuerza de empuje
-    public bool groundCheck; //Bool que determina si el pj puede saltar o no (cuando está en el suelo puede)
+    public bool availableJump = true; //Bool que determina si el pj puede saltar o no (cuando está en el suelo puede)
+    public float flapStartSpeed = -2.0f;
+    public float flapStrength = 1.0f;
+
+    [Header("Debuff")]
+    public bool inBush = false;
 
 
     [Header("Reference Variables")]
@@ -29,22 +34,63 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Ejecuta todo lo que depende del procesador y ejecuta el input
-        //CinematicMove();
+        
     }
 
     private void FixedUpdate()
     {
         //FixedUpdate ejecuta todo lo que tenga que ver con el motor de físicas
         PhysicalMove();
+        //CinematicMove();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision) ////// CADA VEZ QUE EL PLAYER COLISIONA CON ALGO
     {
+        //Debug.Log("COLISION -> "+collision.gameObject.tag);
+        recuperarSalto(collision);
+        
+    }
+
+    void recuperarSalto(Collision collision) {
+
         if (collision.gameObject.CompareTag("Ground"))
         {
-            groundCheck = true; //Al chocar con el suelo se devuelve la posibilidad de saltar
+            availableJump = true; //Al chocar con el suelo se devuelve la posibilidad de saltar
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Feather"))
+        {
+            availableJump = true; //Al chocar con el suelo se devuelve la posibilidad de saltar
+        }
+
+        if (other.gameObject.CompareTag("Bush"))
+        {
+            
+            if (!inBush) {
+                inBush = true;
+                playerRb.linearVelocity = new Vector3((playerRb.linearVelocity.x)/4, (playerRb.linearVelocity.y)/4, (playerRb.linearVelocity.z)/4);
+                speed = speed / 3;
+                jumpForce = jumpForce / 3;
+            }
+
+        }
+    }
+
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Bush")) {
+            inBush = false;
+            speed = speed * 3;
+            jumpForce = jumpForce * 3;
+
+        }
+    }
+
 
     void CinematicMove()
     {
@@ -72,10 +118,27 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        groundCheck = false; //Al saltar, se quita la posibilidad de volver a saltar hasta tocar suelo
-        playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+        if (availableJump == true)
+        {
+            //Debug.Log("SALTO NORMAL");
+            availableJump = false; //Al saltar, se quita la posibilidad de volver a saltar hasta tocar suelo
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+        else
+        {
+            //Debug.Log("PLANEO");
+            //Debug.Log(playerRb.linearVelocity.y);
+            //playerRb.AddForce(Vector3.up * (jumpForce), ForceMode.Force);
+            if (playerRb.linearVelocity.y < flapStartSpeed) {
+                playerRb.linearVelocity = new Vector3(playerRb.linearVelocity.x, playerRb.linearVelocity.y + flapStrength, playerRb.linearVelocity.z);
+            }
+            
+        }
+        
+        
         //Reproducir sonido de salto: accede al player interactor y busca el sonido exacto en la lista
-        sfxSource.PlayOneShot(playerInteractor.sfxList[0]);
+        //sfxSource.PlayOneShot(playerInteractor.sfxList[0]);
     }
 
     #region Input Methods
@@ -91,15 +154,18 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
+
+            Jump();
             //Si aprieto el botón...
             //Y si estoy en el suelo...
-            if (groundCheck == true)
+            /*if (availableJump == true)
             {
                 Jump();
             }
-            
+            */
+
         }
-        
+
     }
 
     #endregion

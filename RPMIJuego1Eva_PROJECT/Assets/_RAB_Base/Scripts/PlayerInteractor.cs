@@ -10,8 +10,11 @@ public class PlayerInteractor : MonoBehaviour
 
     [Header("Point System")]
     public int points; //Cantidad de puntos actuales del player
-    public int winPoints = 5; //Cantidad de puntos necesarios para ganar
-    public int sceneToLoad = 2; //Número de escena a cargar cuando se consigue la victoria
+    public int winPoints = 5; //Cantidad de puntos necesarios para ganar    
+
+    [Header("Anilla System")]
+    public int currentAnilla = 0; //Cantidad de puntos actuales del player
+    public int anillaMax = 5; //Cantidad de puntos necesarios para ganar    
 
     [Header("Reference Variables")]
     public Rigidbody playerRb; //Ref al rigidbody para resetear su motor de aceleración al respawnear
@@ -19,6 +22,9 @@ public class PlayerInteractor : MonoBehaviour
     [Header("SFX Configuration")]
     public AudioClip[] sfxList; //Array de sonidos: diferentes sonidos agrupados para diferentes acciones
     public AudioSource sfxSource; //Ref al altavoz del player: referenciarlo permite reproducir sonidos cuando queramos
+
+    [Header("Scene Managing")]
+    public int sceneToLoad = 2; //Número de escena a cargar cuando se consigue la victoria
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -63,11 +69,30 @@ public class PlayerInteractor : MonoBehaviour
             sfxSource.PlayOneShot(sfxList[2]); //Reproducir el sonido de pick up
             other.gameObject.SetActive(false); //Apagar el objeto con el que chocas
         }
+
         if (other.gameObject.CompareTag("Switch"))
         {
             sfxSource.PlayOneShot(sfxList[3]); //Reproducir el sonido asociado al switch
         }
-        
+
+        if (other.gameObject.CompareTag("Feather"))
+        {
+
+            other.gameObject.SetActive(false); //Apagar el objeto con el que chocas
+        }
+
+        if (other.gameObject.CompareTag("AnillaCenter"))
+        {
+            other.gameObject.SetActive(false);
+            currentAnilla += 1;
+            Debug.Log("LLEVAS " + currentAnilla.ToString() + "/" + anillaMax.ToString()+" ANILLAS");
+        }
+
+        if (other.gameObject.CompareTag("AnillaCenter"))
+        {
+            //sfxSource.PlayOneShot(sfxList[2]); //PLACEHOLDER PARA HACER QUE LA PALOMA HAGA RUIDO CUANDO SE ESTAMPE CONTRA LA ANILLA -----------------------------------------------------
+        }
+
     }
 
     void Respawn()
