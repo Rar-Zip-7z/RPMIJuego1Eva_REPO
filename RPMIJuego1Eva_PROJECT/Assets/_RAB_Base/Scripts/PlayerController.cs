@@ -22,6 +22,11 @@ public class PlayerController : MonoBehaviour
     public AudioSource sfxSource; //Ref al altavoz del player, para reproducir sonidos
     public PlayerInteractor playerInteractor; //Ref al script, permite acceder a su lista de sonidos públicos
 
+    [Header("Camera Settings")]
+    public Transform camara;
+    public float velocidadGiro = 15f;
+
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,14 +39,22 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Ejecuta todo lo que depende del procesador y ejecuta el input
-        
+
+        // Creamos la rotación objetivo usando solo el eje Y de la cámara
+        Quaternion rotacionObjetivo = Quaternion.Euler(0f, camara.eulerAngles.y, 0f);
+
+        // Interpolamos suavemente desde la rotación actual del jugador hacia la de la cámara
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, velocidadGiro * Time.deltaTime);
+
     }
 
     private void FixedUpdate()
     {
-        //FixedUpdate ejecuta todo lo que tenga que ver con el motor de físicas
         PhysicalMove();
-        //CinematicMove();
+
+        Quaternion rotacionObjetivo = Quaternion.Euler(0f, camara.eulerAngles.y, 0f);
+
+        playerRb.MoveRotation(Quaternion.Slerp(playerRb.rotation, rotacionObjetivo, velocidadGiro * Time.fixedDeltaTime));
     }
 
     private void OnCollisionEnter(Collision collision) ////// CADA VEZ QUE EL PLAYER COLISIONA CON ALGO
@@ -99,22 +112,31 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.right * speed * moveInput.x * Time.deltaTime);
     }
 
+
     void PhysicalMove()
     {
-        if (useLinearVelocity == true)
-        {
-            //Tipo de movimiento por uso del motor de aceleración del rigidbody
-            //A cada eje del rigidbody se le multiplica la velocidad * input por separado
-            playerRb.linearVelocity = new Vector3(speed * moveInput.x, playerRb.linearVelocity.y, speed * moveInput.y);
+        // Dirección de la cámara proyectada sobre el plano horizontal
+        Vector3 forward = camara.forward;
+        Vector3 right = camara.right;
+
+        forward.y = 0;
+        right.y = 0;
+
+        forward.Normalize();
+        right.Normalize();
+
+        // Calculamos la dirección de movimiento relativa a la cámara
+        Vector3 movement = forward * moveInput.y + right * moveInput.x;
+
+        if (useLinearVelocity == true){
+            playerRb.linearVelocity = new Vector3(movement.x * speed,playerRb.linearVelocity.y,movement.z * speed);
         }
         else
         {
-            //Tipo de movimiento por fuerza de empuje en cada eje del rigidbody
-            //A cada eje se le aplica un AddForce en la dirección concreta
-            playerRb.AddForce(Vector3.right * speed * moveInput.x);
-            playerRb.AddForce(Vector3.forward * speed * moveInput.y);
+            playerRb.AddForce(movement * speed);
         }
     }
+
 
     void Jump()
     {
