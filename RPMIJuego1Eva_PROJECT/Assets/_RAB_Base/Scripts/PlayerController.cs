@@ -1,3 +1,4 @@
+
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -32,19 +33,13 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         //Ejecuta todo lo que depende del procesador y ejecuta el input
-
-        // Creamos la rotación objetivo usando solo el eje Y de la cámara
-        Quaternion rotacionObjetivo = Quaternion.Euler(0f, camara.eulerAngles.y, 0f);
-
-        // Interpolamos suavemente desde la rotación actual del jugador hacia la de la cámara
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotacionObjetivo, velocidadGiro * Time.deltaTime);
 
     }
 
@@ -61,10 +56,11 @@ public class PlayerController : MonoBehaviour
     {
         //Debug.Log("COLISION -> "+collision.gameObject.tag);
         recuperarSalto(collision);
-        
+
     }
 
-    void recuperarSalto(Collision collision) {
+    void recuperarSalto(Collision collision)
+    {
 
         if (collision.gameObject.CompareTag("Ground"))
         {
@@ -81,10 +77,11 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("Bush"))
         {
-            
-            if (!inBush) {
+
+            if (!inBush)
+            {
                 inBush = true;
-                playerRb.linearVelocity = new Vector3((playerRb.linearVelocity.x)/4, (playerRb.linearVelocity.y)/4, (playerRb.linearVelocity.z)/4);
+                playerRb.linearVelocity = new Vector3((playerRb.linearVelocity.x) / 4, (playerRb.linearVelocity.y) / 4, (playerRb.linearVelocity.z) / 4);
                 speed = speed / 3;
                 jumpForce = jumpForce / 3;
             }
@@ -96,7 +93,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Bush")) {
+        if (other.gameObject.CompareTag("Bush"))
+        {
             inBush = false;
             speed = speed * 3;
             jumpForce = jumpForce * 3;
@@ -128,8 +126,9 @@ public class PlayerController : MonoBehaviour
         // Calculamos la dirección de movimiento relativa a la cámara
         Vector3 movement = forward * moveInput.y + right * moveInput.x;
 
-        if (useLinearVelocity == true){
-            playerRb.linearVelocity = new Vector3(movement.x * speed,playerRb.linearVelocity.y,movement.z * speed);
+        if (useLinearVelocity == true)
+        {
+            playerRb.linearVelocity = new Vector3(movement.x * speed, playerRb.linearVelocity.y, movement.z * speed);
         }
         else
         {
@@ -144,7 +143,7 @@ public class PlayerController : MonoBehaviour
         if (availableJump == true)
         {
             //Debug.Log("SALTO NORMAL");
-            availableJump = false; //Al saltar, se quita la posibilidad de volver a saltar hasta tocar suelo
+            availableJump = false; //Al saltar, se quita la posibilidad de saltar hasta tocar suelo
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
         else
@@ -152,13 +151,14 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("PLANEO");
             //Debug.Log(playerRb.linearVelocity.y);
             //playerRb.AddForce(Vector3.up * (jumpForce), ForceMode.Force);
-            if (playerRb.linearVelocity.y < flapStartSpeed) {
+            if (playerRb.linearVelocity.y < flapStartSpeed)
+            {
                 playerRb.linearVelocity = new Vector3(playerRb.linearVelocity.x, playerRb.linearVelocity.y + flapStrength, playerRb.linearVelocity.z);
             }
-            
+
         }
-        
-        
+
+
         //Reproducir sonido de salto: accede al player interactor y busca el sonido exacto en la lista
         //sfxSource.PlayOneShot(playerInteractor.sfxList[0]);
     }
