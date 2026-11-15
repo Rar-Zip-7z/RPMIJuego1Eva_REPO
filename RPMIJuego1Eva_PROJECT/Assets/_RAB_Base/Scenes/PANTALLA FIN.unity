@@ -660,6 +660,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 908396918025082224, guid: c1372146d31af3346a43777674bb29eb, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5593360256147691387, guid: c1372146d31af3346a43777674bb29eb, type: 3}
       propertyPath: m_Name
       value: TEXTO PANTALLA
@@ -707,6 +711,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7994353478691858376, guid: c1372146d31af3346a43777674bb29eb, type: 3}
+    - {fileID: 2467657423171015093, guid: c1372146d31af3346a43777674bb29eb, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5879179348514391549, guid: c1372146d31af3346a43777674bb29eb, type: 3}
       insertIndex: -1
