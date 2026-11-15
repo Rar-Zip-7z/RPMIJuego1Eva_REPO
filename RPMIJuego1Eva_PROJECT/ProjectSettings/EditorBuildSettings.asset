@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/_RPMI1EVA/Scenes/SCN_Prueba.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/_RAB_Base/Scenes/SCN_INICIO.unity
-    guid: 082a4e2ee73508348b60ab3e6e34a637
+    path: Assets/_RAB_Base/Scenes/PantallaInicio.unity
+    guid: 186fe63f138ac8a4b8ab0349ad2f91dd
   - enabled: 1
     path: Assets/_RAB_Base/Scenes/SCN_MainMenu.unity
     guid: 39332ef17fe4bc843b5d4d16defe1e35
@@ -51,8 +51,8 @@ EditorBuildSettings:
     path: Assets/_RAB_Base/Scenes/SCN_FER.unity
     guid: ddbb0e0b98d76364a9f9b86ee2e09f2c
   - enabled: 1
-    path: Assets/_RAB_Base/Scenes/PantallaInicio.unity
-    guid: 186fe63f138ac8a4b8ab0349ad2f91dd
+    path: Assets/_RAB_Base/Scenes/SCN_INICIO.unity
+    guid: 082a4e2ee73508348b60ab3e6e34a637
   - enabled: 1
     path: Assets/_RAB_Base/Scenes/SCN_Guide.unity
     guid: eb359d144e7a67d4fa2d9f6fe7154d22

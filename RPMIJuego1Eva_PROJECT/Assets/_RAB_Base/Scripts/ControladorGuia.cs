@@ -28,7 +28,7 @@ public class ControladorGuia : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(14);
+            SceneManager.LoadScene(0);
         }
     }
 
