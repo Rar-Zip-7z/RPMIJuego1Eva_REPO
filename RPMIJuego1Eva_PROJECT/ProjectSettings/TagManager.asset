@@ -12,6 +12,7 @@ TagManager:
   - AnillaCenter
   - AnillaMesh
   - Bush
+  - Fin
   layers:
   - Default
   - TransparentFX
