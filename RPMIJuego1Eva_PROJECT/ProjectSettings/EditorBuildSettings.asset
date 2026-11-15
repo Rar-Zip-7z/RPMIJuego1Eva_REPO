@@ -50,15 +50,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_RAB_Base/Scenes/SCN_FER.unity
     guid: ddbb0e0b98d76364a9f9b86ee2e09f2c
-  - enabled: 1
-    path: Assets/_RAB_Base/Scenes/PantallaInicio.unity
-    guid: 186fe63f138ac8a4b8ab0349ad2f91dd
-  - enabled: 1
-    path: Assets/_RAB_Base/Scenes/SCN_Guide.unity
-    guid: eb359d144e7a67d4fa2d9f6fe7154d22
-  - enabled: 1
-    path: Assets/_RAB_Base/Scenes/SCN_REBE_TUTO.unity
-    guid: 7cd5146963578784d9977d5d68592282
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
