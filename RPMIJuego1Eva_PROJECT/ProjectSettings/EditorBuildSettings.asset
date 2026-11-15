@@ -50,6 +50,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_RAB_Base/Scenes/SCN_FER.unity
     guid: ddbb0e0b98d76364a9f9b86ee2e09f2c
+  - enabled: 1
+    path: Assets/_RAB_Base/Scenes/PANTALLA FIN.unity
+    guid: 654a6e0d2281c814bb0a73836bb2e4ee
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
