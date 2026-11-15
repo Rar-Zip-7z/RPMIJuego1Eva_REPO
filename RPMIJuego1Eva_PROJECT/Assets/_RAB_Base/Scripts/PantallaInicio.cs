@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Video;
-using UnityEngine.SceneManagement; // Necesario para cambiar de escena
+using UnityEngine.SceneManagement; 
 
 public class Pantallainicio : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class Pantallainicio : MonoBehaviour
     public GameObject rawImageVideo;
     public GameObject menuCanvasObject;
 
-    // Recuerda si ya vimos el vídeo de intro para no repetirlo al volver de Guide
+    
     private static bool introYaVista = false;
 
     void Start()
@@ -44,9 +44,14 @@ public class Pantallainicio : MonoBehaviour
         if (menuCanvasObject != null) menuCanvasObject.SetActive(true);
     }
 
-    // Función que llamará el botón Guide
+    
     public void IrAGuia()
     {
-        SceneManager.LoadScene("EscenaGuia");
+        SceneManager.LoadScene(15);
+    }
+
+    public void IrTuto()
+    {
+        SceneManager.LoadScene(16);
     }
 }
