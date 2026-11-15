@@ -120607,6 +120607,10 @@ PrefabInstance:
       propertyPath: winPoints
       value: 9999
       objectReference: {fileID: 0}
+    - target: {fileID: 2955268093276677981, guid: ad05bb52c848bd34798792368a48d415, type: 3}
+      propertyPath: sceneToLoad
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3032030455206832374, guid: ad05bb52c848bd34798792368a48d415, type: 3}
       propertyPath: speed
       value: 5

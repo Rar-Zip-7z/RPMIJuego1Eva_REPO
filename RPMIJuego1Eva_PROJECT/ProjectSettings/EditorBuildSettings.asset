@@ -41,6 +41,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_RAB_Base/Scenes/Tuto.unity
     guid: cf72a804fc65f7a419b5d3f76a187c1a
+  - enabled: 1
+    path: Assets/_RAB_Base/Scenes/SCN_Jero.unity
+    guid: 9a75b41f8c06f28499d0be4f23e0bc33
+  - enabled: 1
+    path: Assets/_RAB_Base/Scenes/SCN_PIERO.unity
+    guid: 0525aff5bfc81bf47ab754307686fdc6
+  - enabled: 1
+    path: Assets/_RAB_Base/Scenes/SCN_FER.unity
+    guid: ddbb0e0b98d76364a9f9b86ee2e09f2c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
