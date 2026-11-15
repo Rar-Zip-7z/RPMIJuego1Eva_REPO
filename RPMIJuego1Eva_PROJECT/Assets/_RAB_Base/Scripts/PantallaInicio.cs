@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.Video;
 using UnityEngine.SceneManagement; 
+using UnityEngine.Video;
 
 public class Pantallainicio : MonoBehaviour
 {
@@ -53,5 +53,12 @@ public class Pantallainicio : MonoBehaviour
     public void IrTuto()
     {
         SceneManager.LoadScene(16);
+    }
+
+    public void ExitGame()
+    {
+        //Acción que cierra la build sin usar Alt + F4
+        Debug.Log("El botón de salir del juego funciona.");
+        Application.Quit(); //Acción que cierra el juego
     }
 }
